@@ -1,0 +1,29 @@
+.example-card {
+  max-width: 400px;
+  width: 85%;
+}
+
+.image-bg {
+	height: 200px;
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+	margin: 8px 0;
+}
+
+.mat-p {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 60px;
+}
+
+.mat-card-title span, .mat-card-subtitle span {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+	max-width: 300px;
+}

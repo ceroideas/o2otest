@@ -1,0 +1,89 @@
+<div class="content">
+	<h3>
+		{{data.name}} <br>
+
+		<small>
+			pH: <b>{{data.ph}}</b> <br>
+			SRM: <b>{{data.srm}}</b> <br>
+			Volume <b>{{data.volume.value+' '+data.volume.unit}}</b>
+		</small>
+
+	</h3>
+
+	<h4>
+
+		Ingredients
+		<br>
+
+		<small>
+			<ul *ngIf="data.ingredients?.hops.length">
+				<b><i>Hops</i></b>
+				<li *ngFor="let i of data.ingredients?.hops">
+					{{i.name}} - {{i.amount.value+' '+i.amount.unit}} - {{i.add}} - {{i.attribute}}
+				</li>
+			</ul>
+
+			<ul *ngIf="data.ingredients?.malt.length">
+				<b><i>Malt</i></b>
+				<li *ngFor="let i of data.ingredients?.malt">
+					{{i.name}} - {{i.amount.value+' '+i.amount.unit}}
+				</li>
+			</ul>
+
+			<div *ngIf="data.ingredients?.yeast">
+				<ul>
+					<b>Yeast:</b> {{data.ingredients?.yeast}}
+				</ul>
+			</div>
+		</small>
+	</h4>
+
+	<h4>
+		Methods <br>
+
+		<small>
+			<b><i>Fermentation</i></b>
+			<li>
+				<b>Temp:</b> {{data.method?.fermentation.temp.value+' '+data.method?.fermentation.temp.unit}}
+			</li>
+		</small>
+
+		<br>
+
+		<small>
+			<b><i>Mash Temps</i></b>
+			<li *ngFor="let f of data.method?.mash_temp">
+				<b>Duration:</b> {{f.duration}}min | {{f.temp.value+' '+f.temp.unit}}
+			</li>
+		</small>
+
+		<br>
+
+		<small>
+			<b><i>Twist</i></b>
+			<li>
+				{{data.method?.twist}}
+			</li>
+		</small>
+
+		<br>
+
+		<small><i>{{data.tagline}}</i></small>
+	</h4>
+
+	<div class="image-bg" [ngStyle]="{'background-image':'url('+data.image_url+')'}"></div>
+
+	<h5>Description</h5>
+	<p [innerHtml]="data.description">
+	</p>
+
+	<h5>brewers_tips</h5>
+	<p [innerHtml]="data.brewers_tips">
+	</p>
+
+	<h5>Attenuation Level</h5>
+	<p>
+		{{data.attenuation_level}}
+	</p>
+
+</div>

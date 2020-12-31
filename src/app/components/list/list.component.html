@@ -1,0 +1,22 @@
+<mat-grid-list [cols]="grids" rowHeight="450px" (window:resize)="onResize($event)">
+  <mat-grid-tile *ngFor="let r of results">
+  	<mat-card class="example-card">
+
+	  <mat-card-header>
+	    <mat-card-title> <span>{{r.name}}</span> </mat-card-title>
+	    <mat-card-subtitle> <span>{{r.contributed_by}}</span> </mat-card-subtitle>
+	  </mat-card-header>
+	  <div class="image-bg" [ngStyle]="{'background-image':'url('+r.image_url+')'}">
+	  	
+	  </div>
+	  <mat-card-content>
+	    <p class="mat-p" [innerHtml]="r.brewers_tips">
+	    </p>
+	  </mat-card-content>
+	  <mat-card-actions>
+	    <button mat-button (click)="openDialog(r)">Details</button>
+	  </mat-card-actions>
+	</mat-card>
+
+  </mat-grid-tile>
+</mat-grid-list>
